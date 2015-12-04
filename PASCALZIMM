@@ -1,0 +1,110 @@
+Program Pzim ;
+ var soma,divisao,subtracao,multiplicacao,fat,n1,n2,x,x1,x2:real;
+     q,w:integer;
+	opcao:char;
+	
+       procedure moldura;
+        Begin
+	     gotoxy (1,1);write(chr (218));
+           gotoxy (80,1);write(chr (191));
+           gotoxy (1,25);write( chr (192));
+           gotoxy (80,25);write (chr (217));
+           For q:=2 to 79 do 
+            begin
+             gotoxy (q,1);write (chr (196));
+             gotoxy (q,25);write (chr (196));
+            end; 
+	        for w:= 2 to 24 do
+	       begin
+	        gotoxy (1,w);write (chr (179));
+	        gotoxy (80,w);write (chr (179)); 
+		  end;
+		 End; 
+ Begin 
+     textbackground (cyan); 
+      Textcolor (Yellow); 
+      clrscr;    
+  Repeat
+    moldura;
+       gotoxy(22,9);Writeln ('---------------Menu---------------');
+       gotoxy(22,10);Writeln ('|           (1)Adição            |');
+       gotoxy(22,11);Writeln ('|           (2)Subtraçao         |');
+       gotoxy(22,12);Writeln ('|           (3)multiplicaçao     |');
+       gotoxy(22,13);Writeln ('|           (4)Divisao           |');
+	  gotoxy(22,14);Writeln ('|           (5)Fatorial          |');        
+       gotoxy(22,15);Writeln ('|           (6)Sair              |');
+       gotoxy(22,16);Writeln ('----------------------------------');
+       opcao:=readkey;
+       clrscr;
+	      
+   Case opcao of
+   '1':Begin
+        moldura;	   
+        gotoxy (4,3); Write ('Escreva o primeiro numero a ser somado: ');
+                       Read (n1);
+        gotoxy (4,4); Write ('Escreva o segundo numero a ser somado: ');
+                       Read (n2);
+        soma:=n1+n2;
+        gotoxy (4,5); Write ('A soma é: ',soma);
+        ReadKey;
+        clrscr;
+       End;
+   '2':Begin
+        moldura;
+        gotoxy (4,3); Write ('Escreva o primeiro numero a ser subtraido: ');
+	                  Read (n1);
+	   gotoxy (4,4); Write ('Escreva o segundo numero a ser subtraido: ');
+	                  Read (n2);
+	   subtracao:=n1-n2;
+	   gotoxy (4,5); Write ('A Subtração é: ',subtracao);
+	   ReadKey;
+	   clrscr;
+	  End;
+   '3':Begin
+        moldura;
+        gotoxy (4,3); Write ('Escreva o primeiro numero a ser multiplicado: ');
+                      Read (n1);
+	   gotoxy (4,4); Write ('Escreva o segundo numero a ser multiplicado: ');
+	                 Read (n2);
+	   multiplicacao:=n1*n2;
+	   gotoxy (4,5); Write ('O produto é: ',multiplicacao);
+	   ReadKey;
+	   clrscr;
+	  End; 	 
+   '4':Begin
+        moldura;
+        gotoxy (4,3);  Write ('Escreva o primeiro numero a ser dividido: ');
+	                  Read (n1);
+	   gotoxy (4,4); Write ('Escreva o segundo numero a ser dividido: ');
+	                 Read (n2);
+	   divisao:=n1/n2;
+ 	   gotoxy (4,5); Write ('A Divisao é: ',divisao);
+  	   ReadKey;
+  	   clrscr;
+  	  End;
+   '5':Begin
+        moldura;
+        gotoxy (4,3); Write ('Escreva o numero que pretende ter o seu fatorial: ');
+                      Read (x);
+        fat:=1;
+        while x>1 do
+        Begin
+         fat:=fat*x;
+         x:=x-1; 
+	   End;      
+        gotoxy (4,5); Write ('Fatiorial= ',fat);
+        ReadKey;
+        clrscr;
+       End;
+   '6':Begin
+        moldura;
+        gotoxy (4,3); Writeln ('Espero que o programa tenha sido util');
+	   gotoxy (4,4); Writeln  (' ');              
+        gotoxy (4,5); Writeln ('-----------------------');
+        gotoxy (4,6); Writeln ('Made by: Miguel Barbosa');
+        gotoxy (4,7); Writeln ('-----------------------'); 
+	   gotoxy (4,8); Write ('Clique Enter para terminar');
+       End;
+   End;
+  until opcao='6';        
+ End.
